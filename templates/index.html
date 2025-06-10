@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>dump.bin - Upload</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>dump.bin</h1>
+    <form action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" required />
+      <button type="submit">Upload File</button>
+    </form>
+    <form action="/upload" method="POST" style="margin-top: 1em;">
+      <input type="url" name="short" placeholder="https://example.com" required />
+      <button type="submit">Shorten URL</button>
+    </form>
+    <p>Use from terminal:</p>
+    <code>curl -F 'file=@yourfile.txt' https://dump.bin/upload</code><br />
+    <code>curl -F 'short=https://example.com' https://dump.bin/upload</code>
+  </div>
+</body>
+</html>

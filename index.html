@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>dump.bin - Pastebin Clone</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: monospace;
+      background: #1e1e1e;
+      color: #dcdcdc;
+    }
+    header {
+      background: #121212;
+      padding: 1em;
+      text-align: center;
+      font-size: 2em;
+      border-bottom: 1px solid #333;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 2em;
+    }
+    textarea {
+      width: 100%;
+      height: 300px;
+      background: #2d2d2d;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 1em;
+      font-size: 1em;
+      font-family: monospace;
+      resize: vertical;
+    }
+    button {
+      background: #00b894;
+      color: #fff;
+      padding: 0.7em 2em;
+      font-size: 1em;
+      border: none;
+      border-radius: 6px;
+      margin-top: 1em;
+      cursor: pointer;
+    }
+    .paste-display {
+      margin-top: 2em;
+    }
+    pre {
+      background: #2d2d2d;
+      padding: 1em;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    .footer {
+      text-align: center;
+      color: #888;
+      padding: 2em 0;
+      font-size: 0.8em;
+    }
+  </style>
+</head>
+<body>
+  <header>dump.bin</header>
+  <div class="container">
+    <h2>New Paste</h2>
+    <textarea id="pasteInput" placeholder="Paste your code or text here..."></textarea>
+    <br />
+    <button onclick="createPaste()">Create Paste</button>
+
+    <div class="paste-display" id="pasteOutput" style="display: none;">
+      <h2>Paste Output</h2>
+      <pre><code id="highlightedOutput" class="language-bash"></code></pre>
+    </div>
+  </div>
+
+  <footer class="footer">Static Pastebin Clone - <strong>dump.bin</strong> | No data stored</footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+  <script>
+    function createPaste() {
+      const input = document.getElementById('pasteInput').value;
+      const output = document.getElementById('highlightedOutput');
+      output.textContent = input;
+      document.getElementById('pasteOutput').style.display = 'block';
+      hljs.highlightElement(output);
+    }
+  </script>
+</body>
+    </html>
+    
